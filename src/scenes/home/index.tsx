@@ -4,7 +4,7 @@ import Images from "@/assets";
 import { ActionButton } from "@/shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const { HomePageText } = Images;
+const { HomePageGraphic, HomePageText } = Images;
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -45,6 +45,11 @@ export const Home = ({ setSelectedPage }: Props) => {
               <p>Learn More</p>
             </AnchorLink>
           </div>
+        </div>
+
+        {/* image */}
+        <div>
+          <img src={HomePageGraphic} alt="home-page-graphic" />
         </div>
       </div>
     </section>
