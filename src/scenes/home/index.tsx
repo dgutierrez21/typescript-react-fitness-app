@@ -1,15 +1,24 @@
 import { SelectedPage } from "@/shared/types";
 
 import Images from "@/assets";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { ActionButton } from "@/shared/ActionButton";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const { HomePageGraphic, HomePageText } = Images;
+const {
+  HomePageGraphic,
+  HomePageText,
+  SponsorForbes,
+  SponsorFortune,
+  SponsorRedBull,
+} = Images;
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 export const Home = ({ setSelectedPage }: Props) => {
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
       {/* image and main header */}
@@ -52,6 +61,19 @@ export const Home = ({ setSelectedPage }: Props) => {
           <img src={HomePageGraphic} alt="home-page-graphic" />
         </div>
       </div>
+
+      {/* sponsors */}
+      {isAboveMediumScreens && (
+        <div className="h-[150px] w-full bg-primary-100 py-10">
+          <div className="mx-auto w-5/6">
+            <div className="flex w-3/5 items-center justify-between gap-8">
+              <img src={SponsorRedBull} alt={"redbull-sponsor"} />
+              <img src={SponsorForbes} alt={"forbes-sponsor"} />
+              <img src={SponsorFortune} alt={"fortune-sponsor"} />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
